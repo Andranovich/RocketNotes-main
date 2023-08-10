@@ -54,14 +54,15 @@ export function New() {
         if(!title) {
             return("Digite o título da nota...");
         }
+        
+        if(newLink) {
+            return alert("Você deixou um link no campo para adicionar mas não clicou em adicionar!");
+        }
 
         if(newTag) {
             return alert("Você deixou uma tag no campo para adicionar mas não clicou em adicionar!");
         }
 
-        if(newLink) {
-            return alert("Você deixou uma tag no campo para adicionar mas não clicou em adicionar!");
-        }
 
         await api.post(`/notes/${user.id}`, {
             title,
